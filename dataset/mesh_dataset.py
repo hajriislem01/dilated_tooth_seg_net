@@ -54,15 +54,15 @@ class Teeth3DSDataset(Dataset):
         
     def _set_file_index(self, is_train: bool):
         if self.train_test_split == 1:
-            split_files = ['training_lower.txt', 'training_upper.txt'] if is_train else ['testing_lower.txt',
-                                                                                         'testing_upper.txt']
+            split_files = ['training_lower.txt'] if is_train else ['testing_lower.txt'
+                                                                                         ]
         elif self.train_test_split == 2:
             split_files = ['public-training-set-1.txt', 'public-training-set-2.txt'] if is_train \
                 else ['private-testing-set.txt']
         else:
             raise ValueError(f'train_test_split should be 1 or 2. not {self.train_test_split}')
         for f in split_files:
-            with open(f'data/3dteethseg/raw/{f}') as file:
+            with open(f'/content/drive/MyDrive/data/3dteethseg/raw/{f}') as file:
                 for l in file:
                     l = f'data_{l.rstrip()}.pt'
                     if os.path.isfile(join(self.root, self.processed_folder, l)):
