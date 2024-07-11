@@ -33,12 +33,12 @@ def get_model():
 
 def get_dataset(train_test_split=1) -> tuple[Dataset, Dataset]:
 
-    train = Teeth3DSDataset("data/3dteethseg", processed_folder=f'processed',
+    train = Teeth3DSDataset("/content/drive/MyDrive/data/3dteethseg", processed_folder=f'/content/drive/MyDrive/data/3dteethseg/processed',
                                        verbose=True,
                                        pre_transform=PreTransform(classes=17),
                                        post_transform=None, in_memory=False,
                                        force_process=False, is_train=True, train_test_split=train_test_split)
-    test = Teeth3DSDataset("data/3dteethseg", processed_folder=f'processed',
+    test = Teeth3DSDataset("/content/drive/MyDrive/data/3dteethseg", processed_folder=f'/content/drive/MyDrive/data/3dteethseg/processed',
                                       verbose=True,
                                       pre_transform=PreTransform(classes=17),
                                       post_transform=None, in_memory=False,
