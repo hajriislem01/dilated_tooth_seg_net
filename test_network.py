@@ -54,8 +54,7 @@ if __name__ == "__main__":
     parser.add_argument('--train_batch_size', type=int,
                         help='Train batch size', default=2)
     parser.add_argument('--devices', nargs='+', help='Devices to use', required=True)
-    parser.add_argument('--n_bit_precision', type=int,
-                        help='N-Bit precision', default=16)
+    parser.add_argument('--n_bit_precision', type=str, help='N-Bit precision', default='16-mixed')
     parser.add_argument('--train_test_split', type=int,
                         help='Train test split option. Either 1 or 2', default=1)
     parser.add_argument('--ckpt', type=str,
