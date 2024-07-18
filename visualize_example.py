@@ -71,8 +71,7 @@ if __name__ == "__main__":
     parser.add_argument('--out_dir', type=str,
                         help='Output directory where the mesh will be saved', default='predictions')
     parser.add_argument('--use_gpu', type=bool, default=True)
-    parser.add_argument('--n_bit_precision', type=int,
-                        help='N-Bit precision', default=16)
+    parser.add_argument('--n_bit_precision', type=str, help='N-Bit precision', default='16-mixed')
     parser.add_argument('--train_test_split', type=int,
                         help='Train test split option. Either 1 or 2', default=1)
     parser.add_argument('--data_idx', type=int, default=0)
