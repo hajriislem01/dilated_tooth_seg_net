@@ -60,8 +60,8 @@ if __name__ == "__main__":
     parser.add_argument('--train_batch_size', type=int,
                         help='Train batch size', default=2)
     parser.add_argument('--devices', nargs='+', help='Devices to use', required=True, default=[0])
-    parser.add_argument('--n_bit_precision', type=int,
-                        help='N-Bit precision', default=16)
+    parser.add_argument('--n_bit_precision', type=str,
+                        help='N-Bit precision', default='16-mixed')
     parser.add_argument('--train_test_split', type=int,
                         help='Train test split option. Either 1 or 2', default=1)
     parser.add_argument('--ckpt', type=str,
@@ -79,8 +79,8 @@ if __name__ == "__main__":
     model = get_model()
 
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=args.train_batch_size,
-                                                   shuffle=True, drop_last=True, num_workers=0)
-    val_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=0)
+                                                   shuffle=True, drop_last=True, num_workers=4)
+    val_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=4)
 
     if args.experiment_name is None:
         experiment_name = f'{args.model}_threedteethseg'
