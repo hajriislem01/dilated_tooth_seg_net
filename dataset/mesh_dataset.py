@@ -54,7 +54,7 @@ class Teeth3DSDataset(Dataset):
         
     def _set_file_index(self, is_train: bool):
         if self.train_test_split == 1:
-            split_files = ['training_lower.txt'] if is_train else ['testing_lower.txt'
+            split_files = ['training_lower.txt','training_upper.txt'] if is_train else ['testing_lower.txt','testing_upper.txt'
                                                                                          ]
         elif self.train_test_split == 2:
             split_files = ['public-training-set-1.txt', 'public-training-set-2.txt'] if is_train \
